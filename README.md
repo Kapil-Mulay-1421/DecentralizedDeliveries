@@ -205,4 +205,4 @@ Project Link: [https://github.com/Kapil-Mulay-1421/DecentralizedDeliveries](http
 [license-url]: https://github.com/Kapil-Mulay-1421/DecentralizedDeliveries/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/homepage.png
