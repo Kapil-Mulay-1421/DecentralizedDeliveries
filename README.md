@@ -89,12 +89,8 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 Dependencies:
-* npm
-  ```sh
-  npm install axios
-  ```
-* MongoDB
-  [https://www.mongodb.com](https://www.mongodb.com)
+* [Metamask](https://metamask.io/)
+* [MongoDB](https://www.mongodb.com)
 
 ### Installation
 
@@ -104,8 +100,27 @@ Dependencies:
    ```
 2. Install NPM packages
    ```sh
-   npm install
+   npm install dotenv
    ```
+    ```sh
+   npm install express
+   ```
+    ```sh
+   npm install mongoose
+   ```
+    ```sh
+   npm install web3
+   ```
+    ```sh
+   npm install axios
+   ```
+
+3. Add a .env file in the main directory, and inside it enter: 
+  ```sh
+  DB_URL=mongodb://localhost/deliveries
+  SERVER_URL=http://localhost:3000
+  ```
+  
 3. Navigate to DecentralizedDeliveries -> server, and enter
    ```sh
    node server.js
