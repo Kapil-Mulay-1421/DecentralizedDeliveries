@@ -110,15 +110,15 @@ To get a local copy up and running follow these simple steps.
     ```sh
    npm install web3
    ```
-   ```sh
+    ```sh
    npm install axios
    ```
 
 3. Add a .env file in the main directory, and inside it enter: 
-    ```sh
+    /```sh
   DB_URL=mongodb://localhost/deliveries
   SERVER_URL=http://localhost:3000
-  ```
+  /```
   
 3. Navigate to DecentralizedDeliveries -> server, and enter
    ```sh
