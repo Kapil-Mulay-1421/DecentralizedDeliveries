@@ -62,7 +62,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/Kapil-Mulay-1421/DecentralizedDeliveries/)
 
 In today's last mile delivery system, there's a huge amount of intermediataries between shopkeepers, customers and delivery-men. Whereas in reality, these are the only components we need for the system to function properly. What if all the money from the pockets of customers could actually go to the delivery-men, without intermediataries taking away 70-80% of it?  Welcome to this Ethereum project, which plans on doing just that, by decentralizing this process of last-mile delivery.
 
