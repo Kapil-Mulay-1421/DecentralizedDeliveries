@@ -139,10 +139,13 @@ Let us understand a use case:
 Josh wants to have a product/package delivered at his home. He decides to put a request on the app, and in exchange of the service offers some reward. Mike, seeing the reward offered for making the delivery, decides on making it. He accepts the delivery, picks up the item from the local store and delivers it to Josh’s address. He ‘Proclaims’ that he has made the delivery on the proclaims page. Once a confirmation is received from Josh, the reward money is transferred to Mike’s account. Josh has his item delivered and Mike makes some money, without the need for any intermediatary in the process.
 
 So how does it all work?
-![Lifecycle](./images/lifecycle.png)
+Here's what the architecture of the system looks like:
 
-And here's what the architecture of the system looks like:
 ![Architecture](./images/architecture.png)
+
+* We have 2 different clients - customers(like Josh) and delivery men(like Mike). When a customer requests a delivery, it gets registered in the Ethereum smart contract(currently running on the Ropsten Test Network), which emits an event. This event is caught by the event listener on the server, which immediately relays the information to the database.
+* For accepting deliveries, one can head over to the Accept Delivery page, which queries the delivery requests directly form the database.
+* Once the delivery is made, or 'proclaimed' to have been made, the smart contract waits for the confirmation from the customer before transferring the reward money into the deliver-man's account.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
