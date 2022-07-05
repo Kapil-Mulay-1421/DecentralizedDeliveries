@@ -12,9 +12,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Kapil-Mulay-1421/DecentralizedDeliveries">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">Decentralized Deliveries</h3>
 
