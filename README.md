@@ -115,7 +115,7 @@ To get a local copy up and running follow these simple steps.
    ```
 
 3. Add a .env file in the main directory, and inside it enter: 
-  ```sh
+    ```sh
   DB_URL=mongodb://localhost/deliveries
   SERVER_URL=http://localhost:3000
   ```
