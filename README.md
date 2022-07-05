@@ -110,7 +110,7 @@ To get a local copy up and running follow these simple steps.
     ```sh
    npm install web3
    ```
-    ```sh
+   ```sh
    npm install axios
    ```
 
