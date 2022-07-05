@@ -88,7 +88,6 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-Dependencies:
 * [Metamask](https://metamask.io/)
 * [MongoDB](https://www.mongodb.com)
 
@@ -125,6 +124,8 @@ Dependencies:
    ```sh
    node server.js
    ```
+   Wait for server, Listener and Database to initialize. 
+   The project should be up and running on [localhost:3000](http://localhost:3000)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -136,6 +137,12 @@ Dependencies:
 Let us understand a use case: 
 
 Josh wants to have a product/package delivered at his home. He decides to put a request on the app, and in exchange of the service offers some reward. Mike, seeing the reward offered for making the delivery, decides on making it. He accepts the delivery, picks up the item from the local store and delivers it to Josh’s address. He ‘Proclaims’ that he has made the delivery on the proclaims page. Once a confirmation is received from Josh, the reward money is transferred to Mike’s account. Josh has his item delivered and Mike makes some money, without the need for any intermediatary in the process.
+
+So how does it all work?
+![Lifecycle](./images/lifecycle.png)
+
+And here's what the architecture of the system looks like:
+![Architecture](./images/architecture.png)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
