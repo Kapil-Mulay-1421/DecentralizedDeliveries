@@ -8,7 +8,7 @@ require('dotenv').config()
 const serverUrl = "http://localhost:3000" + '/deliveries/'
 let userAddress = null;
 
-const AcceptDelivery = () => {
+const AcceptDelivery = ({ setMining }) => {
   
     const { state: { contract, accounts } } = useEth()
     const [deliveryRequests, setDeliveryRequests] = useState([])
@@ -28,6 +28,8 @@ const AcceptDelivery = () => {
         alert('There was a problem, please try again.');
         return;
       }
+      // showing shadowLayer
+      setMining(true)
       try {
         await contract.methods.acceptDelivery(hash).send({from: accounts[0]}).then((response) => {
           console.log(response)
@@ -36,6 +38,7 @@ const AcceptDelivery = () => {
       } catch(err) {
         alert(err)
       }
+      setMining(false)
     }
 
   return (

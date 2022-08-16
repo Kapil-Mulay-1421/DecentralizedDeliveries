@@ -17,7 +17,7 @@ const deliveriesRouter = require('./routes/deliveries')
 app.use('/deliveries', deliveriesRouter)
 
 const url = process.env.SERVER_URL + "/deliveries"
-const contractAddress = "0x08115Cbe50690Bf3DA8BE29F6699587EFfd478D9"
+const contractAddress = "0x1649b3506cc8ccd5e83cec3ffef0d3362f0cd854"
 Listener.listen(contractAddress, url, () => {console.log("Listener initialized.")})
 
 app.listen(3000, () => {console.log("Server started.")})

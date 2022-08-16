@@ -11,9 +11,32 @@ let userAddress = null;
 let listeningToAllegeEvent = false;
 let listeningToAcceptEvent = false;
 
-const RequestDelivery = () => {
+const RequestDelivery = ({ setMining }) => {
   const { state: { contract, accounts } } = useEth();
   const [requests, setRequests] = useState([])
+
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
 
   useEffect(() => {
     if(accounts != null) {
@@ -22,6 +45,7 @@ const RequestDelivery = () => {
     if(userAddress != null) {
       Axios.get(serverUrl+'address/' + userAddress).then(response => {
         setRequests(response.data)
+        setCookie("requests", JSON.stringify(response.data), 7)
       })
     }
   }, [contract])
@@ -29,6 +53,7 @@ const RequestDelivery = () => {
   function getRequests() {
     Axios.get(serverUrl+'address/' + userAddress).then(response => {
       setRequests(response.data)
+      setCookie("requests", JSON.stringify(response.data), 7)
     })
   }
 
@@ -86,6 +111,8 @@ const RequestDelivery = () => {
     }
 
     // Calling Contract if validation succeeds: 
+    // Showing shadowLayer:
+    setMining(true)
     try {
       await contract.methods.requestDelivery(to, from, item).send({from: accounts[0], value: value}).then((response) => {
         getRequests()
@@ -94,10 +121,12 @@ const RequestDelivery = () => {
     } catch(err) {
       console.log(err)
     }
+    setMining(false)
   }
 
   window.handleConfirm = async (index) => {
     let requestId = requests[index]._id
+    setMining(true)
     try {
       await contract.methods.confirm(requestId).send({from: accounts[0]}).then((response) => {
         getRequests()
@@ -106,11 +135,12 @@ const RequestDelivery = () => {
     } catch(err) {
       console.log(err)
     }
+    setMining(false)
   }
 
   const handleAccept = (log) => {
     let requestId = log.returnValues.requestId
-    let tempRequests = requests
+    let tempRequests = JSON.parse(getCookie("requests"))
     tempRequests.forEach((request, index) => {
       if (request._id == requestId) {
         tempRequests[index].status = 1
@@ -123,7 +153,7 @@ const RequestDelivery = () => {
 
   const handleAllege = (log) => {
     let requestId = log.returnValues.requestId
-    let tempRequests = requests
+    let tempRequests = JSON.parse(getCookie("requests"))
     tempRequests.forEach((request, index) => {
       if (request._id == requestId) {
         tempRequests[index].status = 2
@@ -190,7 +220,7 @@ const RequestDelivery = () => {
               console.log(request.status)
               return (
                 <tr>
-                  <td>{index}</td>
+                  <td>{index+1}</td>
                   <td>{request.item}</td>
                   <td>{request.from}</td>
                   <td>{request.to}</td>

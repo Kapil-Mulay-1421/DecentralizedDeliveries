@@ -11,24 +11,29 @@ function App() {
   const domain = "http://localhost:3000"
   let location  = window.location.href
   const [request, changeRequest] = useState(location.slice(domain.length, location.length).toLowerCase())
+  const [mining, setMining] = useState(false)
 
   function getComponent(request) {
     if (request === '/') {
-      return <RequestDelivery />
+      changeRequest("/#/")
+    }
+    if (request === '/#/') {
+      return <RequestDelivery setMining={setMining} />
     }
     if (request === '/#/acceptdelivery') {
-      return <AcceptDelivery />
+      return <AcceptDelivery setMining={setMining} />
     }
     if (request === '/#/proclaimdelivery') {
-      return <ProclaimDelivery />
+      return <ProclaimDelivery setMining={setMining} />
     }
   }
 
   return (
       <EthProvider>
       <div id="App" style={{position: "relative"}}>
+        <div id="shadowLayer" className={mining?"is-visible":""}></div>
         <div className="topnav" style={{position: "absolute", zIndex: "2", width: "100%"}}>
-          <a className="#" href="/">Home</a>
+          <a href="/#/" onClick={() => changeRequest("/#/")}>Home</a>
           <a href="/#/acceptdelivery" onClick={() => changeRequest("/#/acceptdelivery")}>Accept Delivery</a>
           <a href="/#/proclaimdelivery" onClick={() => changeRequest("/#/proclaimdelivery")}>Proclaims</a>
           <a href="">About</a>

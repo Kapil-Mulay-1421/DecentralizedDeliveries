@@ -20,7 +20,7 @@
 
 require('dotenv').config()
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const mnemonic = "your pass-phrase"
+const mnemonic = "excite abuse work evoke strategy merge salad syrup kick dutch discover click"
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
@@ -54,6 +54,12 @@ module.exports = {
         return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/e626baf19e274ccdb4398af533a0ff91", 0)
       },
       network_id: 3
+    },
+    mumbai_testnet: {
+      provider: () => {
+        return new HDWalletProvider(mnemonic, "wss://polygon-mumbai.g.alchemy.com/v2/kFy-fHvmiZk4hc4hdMoKC1wL0vQUZZVP", 0)
+      }, 
+      network_id: 80001
     },
     //
     // An additional network, but with some advanced options…

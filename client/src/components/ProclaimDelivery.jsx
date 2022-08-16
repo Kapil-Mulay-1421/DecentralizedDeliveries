@@ -9,7 +9,7 @@ const serverUrl = "http://localhost:3000" + '/deliveries/'
 let userAddress = null;
 let listeningToCompleteEvent = false;
 
-const ProclaimDelivery = () => {
+const ProclaimDelivery = ({ setMining }) => {
   
     const { state: { contract, accounts } } = useEth();
     const [deliveryRequests, setDeliveryRequests] = useState([])
@@ -48,6 +48,7 @@ const ProclaimDelivery = () => {
         alert('There was some problem. Please try again.');
         return;
       }
+      setMining(true)
       try {
         await contract.methods.allegeDelivery(hash).send({from: accounts[0]}).then((response) => {
           console.log(response)
@@ -56,6 +57,7 @@ const ProclaimDelivery = () => {
       } catch(err) {
         alert(err)
       }
+      setMining(false)
     }
 
   return (

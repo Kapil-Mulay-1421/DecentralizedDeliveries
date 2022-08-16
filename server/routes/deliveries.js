@@ -18,7 +18,7 @@ router.get('/:id', getDelivery, (req, res) => {
 router.get("/address/:userAddress", async (req, res) => {
     const customer = req.params.userAddress
     try {
-        const deliveries = await Delivery.find({"customer": customer})
+        const deliveries = await Delivery.find({$and: [{"customer": customer}, {"status": {$lt: 3}}]})
         res.json(deliveries)
     } catch(error) {
         res.status(500).json({message: error.message})

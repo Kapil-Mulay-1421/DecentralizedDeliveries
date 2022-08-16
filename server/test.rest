@@ -1,0 +1,5 @@
+DELETE http://localhost:3000/deliveries/0x1208029a54e9157038a2944722586fa4e641ae03265aee3f4a127798f932dc7d
+
+###
+
+GET http://localhost:3000/deliveries/

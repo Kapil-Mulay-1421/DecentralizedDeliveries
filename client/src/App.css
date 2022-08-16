@@ -230,6 +230,26 @@ input:focus ~ .highlight {
   animation:inputHighlighter 0.3s ease;
 }
 
+/* shadowLayer */
+#shadowLayer {
+  position: fixed;
+  min-height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(67,87,121,.6);
+  cursor: pointer;
+  z-index: 2;
+  display: none;
+}
+
+#shadowLayer.is-visible {
+  display: block;
+  -webkit-animation: cd-fade-in .3s;
+  -moz-animation: cd-fade-in .3s;
+  animation: cd-fade-in .3s;
+}
+
 @-webkit-keyframes inputHighlighter {
   from { background:#5264AE; }
   to  { width:0; background:transparent; }

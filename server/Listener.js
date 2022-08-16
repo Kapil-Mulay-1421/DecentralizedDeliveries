@@ -1,6 +1,6 @@
 require('dotenv').config()
 const Web3 = require('web3')
-const url = "wss://ropsten.infura.io/ws/v3/e626baf19e274ccdb4398af533a0ff91"
+const url = "wss://polygon-mumbai.g.alchemy.com/v2/kFy-fHvmiZk4hc4hdMoKC1wL0vQUZZVP"
 const web3 = new Web3(url)
 const axios = require('axios')
 

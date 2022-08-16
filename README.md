@@ -64,7 +64,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/Kapil-Mulay-1421/DecentralizedDeliveries/)
 
-In today's last mile delivery system, there's a huge amount of intermediataries between shopkeepers, customers and delivery-men. Whereas in reality, these are the only components we need for the system to function properly. What if all the money from the pockets of customers could actually go to the delivery-men, without intermediataries taking away 70-80% of it?  Welcome to this Ethereum project, which plans on doing just that, by decentralizing this process of last-mile delivery.
+In today's last mile delivery system, there's a huge amount of intermediataries between shopkeepers, customers and delivery-men. Whereas in reality, these are the only components we need for the system to function properly. What if all the money from the pockets of customers could actually go to the delivery-men, without intermediataries taking away 70-80% of it? Welcome to this Ethereum project, which plans on doing just that, by decentralizing this process of last-mile delivery. Think of this as Dunzo/UberEats, but fully decentralized and autonomous.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -72,6 +72,7 @@ In today's last mile delivery system, there's a huge amount of intermediataries 
 
 ### Built With
 
+* [Polygon](https://polygon.technology/)
 * [React.js](https://reactjs.org/)
 * [Solidity](https://soliditylang.org/)
 * [Node.js](https://nodejs.org/)
@@ -143,7 +144,7 @@ Here's what the architecture of the system looks like:
 
 ![Architecture](./images/architecture.png)
 
-* We have 2 different clients - customers(like Josh) and delivery men(like Mike). When a customer requests a delivery, it gets registered in the Ethereum smart contract(currently running on the Ropsten Test Network), which emits an event. This event is caught by the event listener on the server, which immediately relays the information to the database.
+* We have 2 different clients - customers(like Josh) and delivery men(like Mike). When a customer requests a delivery, it gets registered in the Ethereum smart contract(currently running on the Mumbai Test Network), which emits an event. This event is caught by the event listener on the server, which immediately relays the information to the database.
 * For accepting deliveries, one can head over to the Accept Delivery page, which queries the delivery requests directly form the database.
 * Once the delivery is made, or 'proclaimed' to have been made, the smart contract waits for the confirmation from the customer before transferring the reward money into the deliver-man's account.
 
