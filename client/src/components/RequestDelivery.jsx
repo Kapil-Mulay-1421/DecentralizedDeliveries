@@ -233,7 +233,7 @@ const RequestDelivery = ({ setMining }) => {
       </div>
     </div>
     <div  style={{height: "100vh", width: "50vw", overflow: "hidden"}}>
-      <img src="https://content.jdmagicbox.com/comp/def_content/transporters/default-transporters-12.jpg" alt="" style={{height: "100%", width: "auto"}} />
+      <img src="../../homePageImg.jpg" alt="" style={{height: "100%", width: "auto"}} />
     </div>
     </div>
   )

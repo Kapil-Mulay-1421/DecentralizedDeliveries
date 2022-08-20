@@ -3,6 +3,7 @@ import "./App.css";
 import AcceptDelivery from "./components/AcceptDelivery";
 import RequestDelivery from "./components/RequestDelivery";
 import ProclaimDelivery from "./components/ProclaimDelivery";
+import About from "./components/About";
 import {useState} from "react";
 require('dotenv').config()
 
@@ -26,6 +27,9 @@ function App() {
     if (request === '/#/proclaimdelivery') {
       return <ProclaimDelivery setMining={setMining} />
     }
+    if (request === '/#/about') {
+      return <About />
+    }
   }
 
   return (
@@ -36,7 +40,7 @@ function App() {
           <a href="/#/" onClick={() => changeRequest("/#/")}>Home</a>
           <a href="/#/acceptdelivery" onClick={() => changeRequest("/#/acceptdelivery")}>Accept Delivery</a>
           <a href="/#/proclaimdelivery" onClick={() => changeRequest("/#/proclaimdelivery")}>Proclaims</a>
-          <a href="">About</a>
+          <a href="/#/about" onClick={() => changeRequest("/#/about")} style={{display: "none"}}>About</a>
         </div>
           <div className="container">
                 {getComponent(request)}
