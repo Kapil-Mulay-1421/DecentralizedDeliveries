@@ -217,7 +217,6 @@ const RequestDelivery = ({ setMining }) => {
           </thead>
           <tbody>
             {requests != null ? requests.map((request, index) => {
-              console.log(request.status)
               return (
                 <tr>
                   <td>{index+1}</td>
@@ -232,8 +231,9 @@ const RequestDelivery = ({ setMining }) => {
         </table>
       </div>
     </div>
-    <div  style={{height: "100vh", width: "50vw", overflow: "hidden"}}>
+    <div  style={{height: "100vh", width: "50vw", overflow: "hidden", position: 'relative'}}>
       <img src="../../homePageImg.jpg" alt="" style={{height: "100%", width: "auto"}} />
+      <p className="credit">Photo by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/s/photos/basket?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
     </div>
     </div>
   )

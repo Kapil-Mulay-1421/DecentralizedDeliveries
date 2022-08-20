@@ -34,7 +34,7 @@ function App() {
 
   return (
       <EthProvider>
-      <div id="App" style={{position: "relative"}}>
+      <div id="App" style={{position: "relative", overflowX: "hidden"}}>
         <div id="shadowLayer" className={mining?"is-visible":""}></div>
         <div className="topnav" style={{position: "absolute", zIndex: "2", width: "100%"}}>
           <a href="/#/" onClick={() => changeRequest("/#/")}>Home</a>
@@ -42,10 +42,10 @@ function App() {
           <a href="/#/proclaimdelivery" onClick={() => changeRequest("/#/proclaimdelivery")}>Proclaims</a>
           <a href="/#/about" onClick={() => changeRequest("/#/about")} style={{display: "none"}}>About</a>
         </div>
-          <div className="container">
-                {getComponent(request)}
-          </div>
+        <div className="container">
+              {getComponent(request)}
         </div>
+      </div>
       </EthProvider>
   );
 }
