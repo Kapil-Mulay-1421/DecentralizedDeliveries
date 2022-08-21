@@ -9,7 +9,7 @@ require('dotenv').config()
 
 
 function App() {
-  const domain = "http://localhost:3000"
+  const domain = window.location.protocol + "//" + window.location.host
   let location  = window.location.href
   const [request, changeRequest] = useState(location.slice(domain.length, location.length).toLowerCase())
   const [mining, setMining] = useState(false)
