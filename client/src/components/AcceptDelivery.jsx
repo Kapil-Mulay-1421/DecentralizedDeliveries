@@ -5,7 +5,7 @@ import '../App.css'
 require('dotenv').config()
 
 
-const serverUrl = "http://localhost:3000" + '/deliveries/'
+const serverUrl = window.location.protocol + "//" + window.location.host + '/deliveries/'
 let userAddress = null;
 
 const AcceptDelivery = ({ setMining }) => {
