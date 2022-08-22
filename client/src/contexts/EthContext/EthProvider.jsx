@@ -9,6 +9,11 @@ function EthProvider({ children }) {
   const init = useCallback(
     async artifact => {
       if (artifact) {
+        const { ethereum } = window;
+        if (!ethereum) {
+          alert("Make sure you have metamask!");
+          return;
+        }
         const web3 = new Web3(Web3.givenProvider || "ws://localhost:7545");
         const accounts = await web3.eth.requestAccounts();
         const networkID = await web3.eth.net.getId();
